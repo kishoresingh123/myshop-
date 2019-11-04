@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+<h1 style="color:blue;">Contact us & feedback form</h1>
+<form name="f" action="" method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">send</button>
+</form>
+
+
+
+
+
+</div>
+{% endblock %}

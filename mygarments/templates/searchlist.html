@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block content %}
+<head>
+    <style>
+        hr {
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
+}
+    </style>
+</head>
+<div class="container">
+    <h2 style="color:blue">Your Search Results are:</h2>
+    {% for i in match1 %}
+    Shirt Name=<h3 style="color:red">{{i.name}}</h3><br>
+<table>
+    <tr>
+        <td width="70%">
+    <img src="{{i.photo.url}}" height="500px" width="500px" style="border:2px solid lime;">
+        </td>
+        <td >
+    <b style="color:red;">description</b>={{i.description}}<br><br>
+    <b style="color:red;">price</b>={{i.price}}<br>
+    {% if i.available %}Available
+        {% else %}Not Available
+    {% endif %}
+    </td>
+    </tr>
+    </table>
+
+    <hr>
+    {% endfor %}
+    {% for messages in messages%}
+        {{messages}}
+    {% endfor%}
+</div>
+{% endblock %}
